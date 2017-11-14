@@ -1,6 +1,6 @@
 package lk.lian.chequeapp.data.source.local;
 
-import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +11,6 @@ import lk.lian.chequeapp.cheques.ChequeType;
 import lk.lian.chequeapp.cheques.model.Cheque;
 import lk.lian.chequeapp.data.source.ChequeDataSource;
 
-import static android.support.v4.util.Preconditions.checkNotNull;
 import static lk.lian.chequeapp.data.source.local.LocalPersistence.ChequeEntity;
 
 /**
@@ -23,9 +22,7 @@ public class ChequeLocalDataSource implements ChequeDataSource {
   private static ChequeLocalDataSource INSTANCE;
   private DBHelper mDbHelper;
 
-  @SuppressLint("RestrictedApi")
   private ChequeLocalDataSource(@NonNull Context context) {
-    checkNotNull(context);
     mDbHelper = new DBHelper(context);
   }
 
@@ -37,7 +34,6 @@ public class ChequeLocalDataSource implements ChequeDataSource {
   @Override public void getCheque(@NonNull int number, @NonNull LoadChequeCallback chequeCallback) {
 
   }
-
   @Override public void getCheques(@NonNull LoadChequesCallback chequesCallback) {
     List<Cheque> cheques = new ArrayList<>();
     SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -70,5 +66,22 @@ public class ChequeLocalDataSource implements ChequeDataSource {
     } else {
       chequesCallback.onChequesLoaded(cheques);
     }
+  }
+
+  @Override public void addCheques(@NonNull Cheque cheque, @NonNull AddChequeCallback callback) {
+    SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+    ContentValues values = new ContentValues();
+    values.put(ChequeEntity.COLUMN_CHEQUE_NUMBER, cheque.getNumber());
+    values.put(ChequeEntity.COLUMN_CHEQUE_BANKCODE, cheque.getBankCode());
+    values.put(ChequeEntity.COLUMN_CHEQUE_BRANCHCODE, cheque.getBranchCode());
+    values.put(ChequeEntity.COLUMN_CHEQUE_AMOUNT, cheque.getAmount());
+    values.put(ChequeEntity.COLUMN_CHEQUE_DATE, cheque.getDate());
+
+    db.insert(ChequeEntity.TABLE_NAME, null, values);
+
+    db.close();
+
+    callback.onChequeAdded(cheque);
   }
 }

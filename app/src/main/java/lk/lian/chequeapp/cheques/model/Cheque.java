@@ -6,28 +6,27 @@ package lk.lian.chequeapp.cheques.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import java.util.Date;
 import lk.lian.chequeapp.cheques.ChequeType;
 
 /**
  * Model class for a cheque.
  */
 public class Cheque {
-  @NonNull private int mNumber;
+  @NonNull private int number;
 
-  @NonNull private int mBankCode;
+  @NonNull private int bankCode;
 
-  @NonNull private int mBranchCode;
+  @NonNull private int branchCode;
 
-  @NonNull private double mAmount;
+  @NonNull private double amount;
 
-  @NonNull private String mAmountInWord;
+  @NonNull private String amountInWord;
 
-  @NonNull private long mDate;
+  @NonNull private long date;
 
-  @NonNull private ChequeType mType;
+  @NonNull private ChequeType type;
 
-  @Nullable private String mPayee;
+  @Nullable private String payee;
 
   private boolean isReturn;
 
@@ -36,96 +35,96 @@ public class Cheque {
   /**
    * Use this constructor to create a new cheque
    *
-   * @param mNumber cheque number
-   * @param mBankCode bank code of the cheque
-   * @param mBranchCode branch code of the cheque
-   * @param mAmount amount of the check
-   * @param mAmountInWord amount in word of the check
-   * @param mDate date of the cheque
-   * @param mType cheque type can be {@link ChequeType#BEARER},
+   * @param number cheque number
+   * @param bankCode bank code of the cheque
+   * @param branchCode branch code of the cheque
+   * @param amount amount of the check
+   * @param amountInWord amount in word of the check
+   * @param date date of the cheque
+   * @param type cheque type can be {@link ChequeType#BEARER},
    *                          {@link ChequeType#ORDER},
    *                          {@link ChequeType#UNCROSSED},
    *                          {@link ChequeType#CROSSED},
    *                          {@link ChequeType#ANTIDATED},
    *                          {@link ChequeType#POSTDATED} or
    *                          {@link ChequeType#STALE}
-   * @param mPayee payee name
+   * @param payee payee name
    */
-  public Cheque(@NonNull int mNumber, @NonNull int mBankCode, @NonNull int mBranchCode,
-      @NonNull double mAmount, @NonNull String mAmountInWord, @NonNull long mDate,
-      @NonNull ChequeType mType, String mPayee) {
-    this.mNumber = mNumber;
-    this.mBankCode = mBankCode;
-    this.mBranchCode = mBranchCode;
-    this.mAmount = mAmount;
-    this.mAmountInWord = mAmountInWord;
-    this.mDate = mDate;
-    this.mType = mType;
-    this.mPayee = mPayee;
+  public Cheque(@NonNull int number, @NonNull int bankCode, @NonNull int branchCode,
+      @NonNull double amount, @NonNull String amountInWord, @NonNull long date,
+      @NonNull ChequeType type, String payee) {
+    this.number = number;
+    this.bankCode = bankCode;
+    this.branchCode = branchCode;
+    this.amount = amount;
+    this.amountInWord = amountInWord;
+    this.date = date;
+    this.type = type;
+    this.payee = payee;
   }
 
-  @NonNull public int getmNumber() {
-    return mNumber;
+  @NonNull public int getNumber() {
+    return number;
   }
 
-  public void setmNumber(@NonNull int mNumber) {
-    this.mNumber = mNumber;
+  public void setNumber(@NonNull int number) {
+    this.number = number;
   }
 
-  @NonNull public int getmBankCode() {
-    return mBankCode;
+  @NonNull public int getBankCode() {
+    return bankCode;
   }
 
-  public void setmBankCode(@NonNull int mBankCode) {
-    this.mBankCode = mBankCode;
+  public void setBankCode(@NonNull int bankCode) {
+    this.bankCode = bankCode;
   }
 
-  @NonNull public int getmBranchCode() {
-    return mBranchCode;
+  @NonNull public int getBranchCode() {
+    return branchCode;
   }
 
-  public void setmBranchCode(@NonNull int mBranchCode) {
-    this.mBranchCode = mBranchCode;
+  public void setBranchCode(@NonNull int branchCode) {
+    this.branchCode = branchCode;
   }
 
-  @NonNull public double getmAmount() {
-    return mAmount;
+  @NonNull public double getAmount() {
+    return amount;
   }
 
-  public void setmAmount(@NonNull double mAmount) {
-    this.mAmount = mAmount;
+  public void setAmount(@NonNull double amount) {
+    this.amount = amount;
   }
 
-  @NonNull public String getmAmountInWord() {
-    return mAmountInWord;
+  @NonNull public String getAmountInWord() {
+    return amountInWord;
   }
 
-  public void setmAmountInWord(@NonNull String mAmountInWord) {
-    this.mAmountInWord = mAmountInWord;
+  public void setAmountInWord(@NonNull String amountInWord) {
+    this.amountInWord = amountInWord;
   }
 
-  @NonNull public long getmDate() {
-    return mDate;
+  @NonNull public long getDate() {
+    return date;
   }
 
-  public void setmDate(@NonNull long mDate) {
-    this.mDate = mDate;
+  public void setDate(@NonNull long date) {
+    this.date = date;
   }
 
-  @NonNull public ChequeType getmType() {
-    return mType;
+  @NonNull public ChequeType getType() {
+    return type;
   }
 
-  public void setmType(@NonNull ChequeType mType) {
-    this.mType = mType;
+  public void setType(@NonNull ChequeType type) {
+    this.type = type;
   }
 
-  @Nullable public String getmPayee() {
-    return mPayee;
+  @Nullable public String getPayee() {
+    return payee;
   }
 
-  public void setmPayee(@Nullable String mPayee) {
-    this.mPayee = mPayee;
+  public void setPayee(@Nullable String payee) {
+    this.payee = payee;
   }
 
   public boolean isReturn() {
@@ -150,30 +149,30 @@ public class Cheque {
 
     Cheque cheque = (Cheque) o;
 
-    if (mNumber != cheque.mNumber) return false;
-    if (mBankCode != cheque.mBankCode) return false;
-    return mBranchCode == cheque.mBranchCode;
+    if (number != cheque.number) return false;
+    if (bankCode != cheque.bankCode) return false;
+    return branchCode == cheque.branchCode;
   }
 
   @Override public String toString() {
     return "Cheque{"
-        + "mNumber="
-        + mNumber
-        + ", mBankCode="
-        + mBankCode
-        + ", mBranchCode="
-        + mBranchCode
-        + ", mAmount="
-        + mAmount
-        + ", mAmountInWord='"
-        + mAmountInWord
+        + "number="
+        + number
+        + ", bankCode="
+        + bankCode
+        + ", branchCode="
+        + branchCode
+        + ", amount="
+        + amount
+        + ", amountInWord='"
+        + amountInWord
         + '\''
-        + ", mDate="
-        + mDate
-        + ", mType="
-        + mType
-        + ", mPayee='"
-        + mPayee
+        + ", date="
+        + date
+        + ", type="
+        + type
+        + ", payee='"
+        + payee
         + '\''
         + ", isReturn="
         + isReturn

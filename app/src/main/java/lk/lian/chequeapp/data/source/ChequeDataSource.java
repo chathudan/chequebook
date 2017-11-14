@@ -9,9 +9,11 @@ import lk.lian.chequeapp.cheques.model.Cheque;
  */
 public interface ChequeDataSource {
 
-  void getCheque(@NonNull int number, @NonNull LoadChequeCallback chequeCallback);
+  void getCheque(@NonNull int number, @NonNull LoadChequeCallback callback);
 
-  void getCheques(@NonNull LoadChequesCallback chequesCallback);
+  void getCheques(@NonNull LoadChequesCallback callback);
+
+  void addCheques(@NonNull Cheque cheque, @NonNull AddChequeCallback callback);
 
   interface AddChequeCallback {
     void onChequeAdded(Cheque cheque);
