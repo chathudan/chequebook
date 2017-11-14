@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 import lk.lian.chequeapp.cheques.ChequeType;
 import lk.lian.chequeapp.cheques.model.Cheque;
@@ -19,19 +18,19 @@ import static lk.lian.chequeapp.data.source.local.LocalPersistence.ChequeEntity;
  * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 11/9/17.
  */
 
-public class LocalDataSource implements ChequeDataSource {
+public class ChequeLocalDataSource implements ChequeDataSource {
 
-  private static LocalDataSource INSTANCE;
+  private static ChequeLocalDataSource INSTANCE;
   private DBHelper mDbHelper;
 
   @SuppressLint("RestrictedApi")
-  private LocalDataSource(@NonNull Context context) {
+  private ChequeLocalDataSource(@NonNull Context context) {
     checkNotNull(context);
     mDbHelper = new DBHelper(context);
   }
 
-  public static LocalDataSource getInstance(@NonNull Context context) {
-    if (INSTANCE == null) INSTANCE = new LocalDataSource(context);
+  public static ChequeLocalDataSource getInstance(@NonNull Context context) {
+    if (INSTANCE == null) INSTANCE = new ChequeLocalDataSource(context);
     return INSTANCE;
   }
 

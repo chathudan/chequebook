@@ -3,7 +3,7 @@ package lk.lian.chequeapp.cheques.model;
 import android.support.annotation.NonNull;
 
 /**
- * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 11/14/17.
+ * Model class for Bank.
  */
 
 public class Bank {
