@@ -2,7 +2,7 @@ package lk.lian.chequeapp.data.source;
 
 import android.support.annotation.NonNull;
 import java.util.List;
-import lk.lian.chequeapp.cheques.model.Cheque;
+import lk.lian.chequeapp.cheques.domain.model.Cheque;
 
 /**
  * The main access point for accessing cheque data.
@@ -13,7 +13,7 @@ public interface ChequeDataSource {
 
   void getCheques(@NonNull LoadChequesCallback callback);
 
-  void addCheques(@NonNull Cheque cheque, @NonNull AddChequeCallback callback);
+  void addCheque(@NonNull Cheque cheque, @NonNull AddChequeCallback callback);
 
   interface AddChequeCallback {
     void onChequeAdded(Cheque cheque);

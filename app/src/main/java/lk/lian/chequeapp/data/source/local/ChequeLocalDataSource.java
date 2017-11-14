@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 import lk.lian.chequeapp.cheques.ChequeType;
-import lk.lian.chequeapp.cheques.model.Cheque;
+import lk.lian.chequeapp.cheques.domain.model.Cheque;
 import lk.lian.chequeapp.data.source.ChequeDataSource;
 
 import static lk.lian.chequeapp.data.source.local.LocalPersistence.ChequeEntity;
@@ -68,7 +68,7 @@ public class ChequeLocalDataSource implements ChequeDataSource {
     }
   }
 
-  @Override public void addCheques(@NonNull Cheque cheque, @NonNull AddChequeCallback callback) {
+  @Override public void addCheque(@NonNull Cheque cheque, @NonNull AddChequeCallback callback) {
     SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
     ContentValues values = new ContentValues();

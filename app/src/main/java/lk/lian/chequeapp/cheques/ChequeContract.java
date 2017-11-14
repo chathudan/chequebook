@@ -1,11 +1,10 @@
 package lk.lian.chequeapp.cheques;
 
 import android.support.annotation.NonNull;
-import android.view.View;
 import java.util.List;
 import lk.lian.chequeapp.BasePresenter;
 import lk.lian.chequeapp.BaseView;
-import lk.lian.chequeapp.cheques.model.Cheque;
+import lk.lian.chequeapp.cheques.domain.model.Cheque;
 
 /**
  * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 11/9/17.

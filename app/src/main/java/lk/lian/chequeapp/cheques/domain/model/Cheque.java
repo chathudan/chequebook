@@ -2,7 +2,7 @@
  * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 11/9/17.
  */
 
-package lk.lian.chequeapp.cheques.model;
+package lk.lian.chequeapp.cheques.domain.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
